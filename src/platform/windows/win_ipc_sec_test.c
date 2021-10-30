@@ -8,21 +8,13 @@
 // found online at https://opensource.org/licenses/MIT.
 //
 
+#include <nuts.h>
 #include <nng/nng.h>
 #include <nng/protocol/reqrep0/rep.h>
 #include <nng/protocol/reqrep0/req.h>
 #include <nng/transport/ipc/ipc.h>
-#include <nuts.h>
-
-#include "convey.h"
-#include "stubs.h"
-#include "trantest.h"
 
 #define ADDR "/tmp/ipc_winsec_test"
-
-// Inproc tests.
-
-#include <assert.h>
 
 // Microsoft prefers CamelCase header names, but relies on case insensitive
 // file systems to make that work.  The rest of the world (min-gw64 included)
@@ -42,7 +34,7 @@ sdescAuthUsers(PSID sid, PACL *aclp)
 	ACL                 *acl;
 
 	sdesc = calloc(SECURITY_DESCRIPTOR_MIN_LENGTH, 1);
-	assert(sdesc != NULL);
+	NUTS_ASSERT(sdesc != NULL);
 
 	InitializeSecurityDescriptor(sdesc, SECURITY_DESCRIPTOR_REVISION);
 
