@@ -31,6 +31,7 @@ project(nng C)
 include(CheckCCompilerFlag)
 include(GNUInstallDirs)
 
+set(BUILD_SHARED_LIBS ON)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 include(NNGHelpers)
